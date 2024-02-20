@@ -42,6 +42,15 @@ app.get('/fetch-pdf', (req, res) => {
     });
 });
 
+app.get('/', (req, res) => {
+    res.send('Bienvenue');
+});
+    
+
+    
+
+
+
 app.post('/create-cv', (req, res) => {
     const cvFilePath = path.join(__dirname, 'cv.pdf');
 
