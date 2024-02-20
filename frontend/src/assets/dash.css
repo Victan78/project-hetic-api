@@ -1,0 +1,56 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+   width: 100%;
+    background-color: #202020;
+}
+
+.dashboard h1{
+   background: linear-gradient(90deg, #a0f27a, #f9b732);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3.2em;
+    line-height: 1.1;
+    margin: 1em;
+    cursor: pointer;
+    transition: all 3s ease-in-out;
+}
+.dashboard h1:hover{
+    background: linear-gradient(90deg, #dbf932, #a0f27a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3.2em;
+    line-height: 1.1;
+    margin: 1em;
+    
+}
+
+.dashboard a{
+    color: #e5ff7e;
+    text-decoration: none;
+    border: 2px solid #e5ff7e;
+    width: 100%;
+    font-size: 1.5em;
+    margin: 1em;
+}
+
+.dashboard a:hover{
+    background-color: #e5ff7e;
+    color: #202020;
+    box-shadow: 5px 5px 0px #99aa54;
+}
+
+.dashboard a:active{
+    background-color: #202020;
+    color: #e5ff7e;
+    box-shadow: 5px 5px 0px #202020;
+}
+
+.dashboard span{
+    color: #ffffff88;
+    font-size: 1.2em;
+    margin: 1em;
+}
