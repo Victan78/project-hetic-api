@@ -15,8 +15,8 @@ class   Facture extends Component {
   handleChange = ({ target: { value, name }}) => this.setState({ [name]: value })
 
   createAndDownloadPdf = () => {
-    axios.post('https://project-hetic-api-1jil-git-main-victan78.vercel.app/create-cv', this.state)
-      .then(() => axios.get('https://project-hetic-api-1jil-git-main-victan78.vercel.app/fetch-cv', { responseType: 'blob' }))
+    axios.post('http://localhost:5000/create-cv', this.state)
+      .then(() => axios.get('http://localhost:5000/fetch-cv', { responseType: 'blob' }))
       // Ajoutez l'URL complet pour la deuxième requête GET
   
       .then((res) => {
