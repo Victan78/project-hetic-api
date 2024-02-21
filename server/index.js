@@ -16,11 +16,7 @@ app.use(bodyParser.json());
 
 app.post('/create-pdf', async (req, res) => {
     const pdfFilePath = path.join(__dirname, 'result.pdf');
-    
-    const browser = await puppeteer.launch({
-        headless: 'new',
-        executablePath: './chromedriver_win32/chromedriver.exe', // Remplacez par le chemin vers ChromeDriver sur votre serveur
-    });
+    await puppeteer.launch({headless: true});
     const page = await browser.newPage();
     
     // Utilisez la page Puppeteer pour générer le PDF
