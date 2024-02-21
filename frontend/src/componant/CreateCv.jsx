@@ -62,8 +62,8 @@ const CVForm = () => {
         listeExperience: experiences,
       };
   
-      axios.post('http://localhost:5000/create-cv', formData)
-        .then(() => axios.get('http://localhost:5000/fetch-cv', { responseType: 'blob' }))
+      axios.post('https://project-hetic-api-1jil.vercel.app/create-cv', formData)
+        .then(() => axios.get('https://project-hetic-api-1jil.vercel.app/fetch-cv', { responseType: 'blob' }))
         .then((res) => {
             const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
             setPdfUrl(URL.createObjectURL(pdfBlob));
