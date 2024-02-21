@@ -17,7 +17,7 @@ git clone https://votre-url-du-repo.git
 cd backend
 ```
 
-3. Installez les dépendances.
+2. Installez les dépendances.
 
 ```bash
 npm install
@@ -25,7 +25,7 @@ npm install
 
 
 
-4. Lancez le serveur.
+3. Lancez le serveur.
 
 ```bash
 npm start
