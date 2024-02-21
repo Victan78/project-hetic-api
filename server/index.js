@@ -19,7 +19,9 @@ app.post('/create-pdf', async (req, res) => {
     
     const browser = await puppeteer.launch({
         headless: 'new',
-        executablePath: './chromedriver_win32/chromedriver.exe', // Remplacez par le chemin vers ChromeDriver sur votre serveur
+
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+
     });
     const page = await browser.newPage();
     
