@@ -17,7 +17,7 @@ class   Facture extends Component {
   createAndDownloadPdf = () => {
     axios.post('http://localhost:5000/create-cv', this.state)
       .then(() => axios.get('http://localhost:5000/fetch-cv', { responseType: 'blob' }))
-      // Ajoutez l'URL complet pour la deuxième requête GET
+ 
   
       .then((res) => {
         const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
@@ -25,7 +25,7 @@ class   Facture extends Component {
       })
       .catch((error) => {
         console.error('Erreur lors de la création ou de la récupération du fichier PDF:', error);
-        // Gérez l'erreur côté client
+        
       });
   }
   

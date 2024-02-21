@@ -37,13 +37,13 @@ const CVForm = () => {
           alert('Veuillez remplir tous les champs de la nouvelle expérience');
           return;
         }
-      // Ajoutez la nouvelle expérience à la liste des expériences sil ny a pas dexpérience dans la liste
+     
         if (experiences.length === 0) {
           setExperiences([nouvelleExperience]);
         } else {
             setExperiences([...experiences, nouvelleExperience]);
             }
-        // Réinitialisez la nouvelle expérience
+   
         setNouvelleExperience({ entreprise: '', dates: '', description: '' });
     };
   
@@ -81,7 +81,7 @@ const CVForm = () => {
         .catch((error) => {
             setLoading(false)
           console.error('Erreur lors de la création ou de la récupération du fichier PDF:', error);
-          // Gérez l'erreur côté client
+   
         });
     };
 
