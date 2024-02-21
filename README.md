@@ -1,7 +1,7 @@
 
 
 ---
-
+Je précise que le back n'est pas déployer il faudrais tester l'appli en local
 # Générateur de PDF avec Stockage Firebase
 
 Ce projet est une application de génération de PDF côté serveur utilisant Node.js pour le backend et React pour le frontend. Les PDF générés sont ensuite stockés dans Firebase Storage. 
