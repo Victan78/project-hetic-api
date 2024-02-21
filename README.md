@@ -10,8 +10,7 @@ Ce projet est une application de génération de PDF côté serveur utilisant No
 
 ### Backend (Node.js)
 
-1. Assurez-vous d'avoir Node.js installé sur votre machine.
-2. Clonez le dépôt du projet.
+1.Cloner
 
 ```bash
 git clone https://votre-url-du-repo.git
@@ -24,10 +23,9 @@ cd backend
 npm install
 ```
 
-4. Créez un fichier `.env` à la racine du dossier backend avec les configurations Firebase.
 
 
-5. Lancez le serveur.
+4. Lancez le serveur.
 
 ```bash
 npm start
