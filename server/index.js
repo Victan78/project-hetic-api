@@ -16,14 +16,12 @@ app.use(bodyParser.json());
 
 app.post('/create-pdf', async (req, res) => {
     const pdfFilePath = path.join(__dirname, 'result.pdf');
-
+    
     const browser = await puppeteer.launch({
-        executablePath: await puppeteer.executablePath(),
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        executablePath: './chromedriver_win32/chromedriver.exe', // Remplacez par le chemin vers ChromeDriver sur votre serveur
     });
-
     const page = await browser.newPage();
-
+    
     // Utilisez la page Puppeteer pour générer le PDF
     await page.setContent(cvTemplate(req.body));
     await page.pdf({ path: pdfFilePath, format: 'A4' });
@@ -32,7 +30,6 @@ app.post('/create-pdf', async (req, res) => {
 
     res.send('PDF créé avec succès');
 });
-
 app.get('/fetch-pdf', (req, res) => {
     const pdfFilePath = path.join(__dirname, 'result.pdf');
     const fileStream = fs.createReadStream(pdfFilePath);
