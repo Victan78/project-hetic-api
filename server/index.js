@@ -6,13 +6,17 @@ const cors = require('cors');
 const pdfTemplate = require('./documents');
 const cvTemplate = require('./documents/CV/cvModel');
 
+
 const app = express();
 const path = require('path');
 const fs = require('fs');
 const port = process.env.PORT || 5000;
 const phantomjs = require('phantomjs-prebuilt');
 const path = require('path');
-app.use(cors('https://project-hetic-api-1jil-git-main-victan78.vercel.app','project-hetic-api-git-main-victan78.vercel.app'));
+
+
+
+app.use(cors('*'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -21,8 +25,11 @@ app.post('/create-pdf', (req, res) => {
     const pdfFilePath = path.join(__dirname, 'result.pdf');
 
     const pdfOptions = {
-        phantomPath: phantomjs.path, // Spécifiez le chemin vers PhantomJS
-        // Autres options de création PDF...
+        phantomPath: phantomjs.path,
+        format: 'A4',
+        orientation: 'portrait',
+        border: '10mm',
+       
     };
 
     pdf.create(cvTemplate(req.body), pdfOptions).toFile(pdfFilePath, (err) => {
