@@ -11,7 +11,7 @@ const path = require('path');
 const fs = require('fs');
 const port = process.env.PORT || 5000;
 
-app.use(cors('*'));
+app.use(cors('https://project-hetic-api-1jil-git-main-victan78.vercel.app','project-hetic-api-git-main-victan78.vercel.app'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.post('/create-pdf', (req, res) => {
