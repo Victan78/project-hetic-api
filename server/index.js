@@ -11,8 +11,8 @@ const app = express();
 const path = require('path');
 const fs = require('fs');
 const port = process.env.PORT || 5000;
-const phantomjs = require('phantomjs-prebuilt');
 
+const puppeteer = require('puppeteer');
 
 
 
@@ -21,25 +21,25 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-app.post('/create-pdf', (req, res) => {
+
+
+app.post('/create-pdf', async (req, res) => {
     const pdfFilePath = path.join(__dirname, 'result.pdf');
 
-    const pdfOptions = {
-        phantomPath: phantomjs.path,
-        format: 'A4',
-        orientation: 'portrait',
-        border: '10mm',
-       
-    };
+    try {
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
 
-    pdf.create(cvTemplate(req.body), pdfOptions).toFile(pdfFilePath, (err) => {
-        if (err) {
-            console.error('Erreur lors de la création du PDF:', err);
-            return res.status(500).send(err);
-        }
+        // Générer le PDF à partir du modèle HTML
+        await page.setContent(cvTemplate(req.body));
+        await page.pdf({ path: pdfFilePath, format: 'A4' });
 
+        await browser.close();
         res.send('PDF créé avec succès');
-    });
+    } catch (err) {
+        console.error('Erreur lors de la création du PDF:', err);
+        res.status(500).send(err);
+    }
 });
 
 app.get('/fetch-pdf', (req, res) => {
