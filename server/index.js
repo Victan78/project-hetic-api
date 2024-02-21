@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 
 const cvTemplate = require('./documents/CV/cvModel');
 
@@ -17,10 +17,14 @@ app.use(bodyParser.json());
 app.post('/create-pdf', async (req, res) => {
     const pdfFilePath = path.join(__dirname, 'result.pdf');
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        executablePath: await puppeteer.executablePath(),
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
+
     const page = await browser.newPage();
 
-
+    // Utilisez la page Puppeteer pour générer le PDF
     await page.setContent(cvTemplate(req.body));
     await page.pdf({ path: pdfFilePath, format: 'A4' });
 
