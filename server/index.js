@@ -23,7 +23,7 @@ app.post('/create-pdf', async (req, res) => {
     });
     const page = await browser.newPage();
     
-    // Utilisez la page Puppeteer pour générer le PDF
+    
     await page.setContent(cvTemplate(req.body));
     await page.pdf({ path: pdfFilePath, format: 'A4' });
 
@@ -50,34 +50,8 @@ app.get('/', (req, res) => {
     res.send('Bienvenue');
 });
 
-app.post('/create-cv', async (req, res) => {
-    const cvFilePath = path.join(__dirname, 'cv.pdf');
 
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
 
-    
-    await page.setContent(cvTemplate(req.body));
-    await page.pdf({ path: cvFilePath, format: 'A4' });
 
-    await browser.close();
-
-    res.send('CV créé avec succès');
-});
-
-app.get('/fetch-cv', (req, res) => {
-    const cvFilePath = path.join(__dirname, 'cv.pdf');
-    const fileStream = fs.createReadStream(cvFilePath);
-
-    fileStream.on('open', () => {
-        res.setHeader('Content-Type', 'application/pdf');
-        fileStream.pipe(res);
-    });
-
-    fileStream.on('error', (err) => {
-        console.error('Erreur lors de la lecture du fichier CV:', err);
-        res.status(500).send('Erreur lors de la récupération du fichier CV');
-    });
-});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
