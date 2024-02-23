@@ -60,6 +60,7 @@ const CVForm = () => {
         competences,
         autreCompetence,
         listeExperience: experiences,
+        email: user.email,
       };
   
       axios.post('http://localhost:5000/create-cv', formData)

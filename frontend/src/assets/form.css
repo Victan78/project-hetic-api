@@ -254,6 +254,7 @@ body{
     padding: 10px;
     border-radius: 5px;
     border: 2px solid #e5ff7e;
+    max-height: 40px;
     width: 100%;
     max-width: 700px;
     margin: 1em;

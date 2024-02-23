@@ -1,0 +1,17 @@
+# Utilisez une image de base avec Node.js
+FROM node:alpine
+
+# Définissez le répertoire de travail dans le conteneur
+WORKDIR /
+
+# Copiez les fichiers du projet dans le conteneur
+COPY package*.json ./
+RUN npm install
+
+# Copiez le reste des fichiers dans le conteneur
+COPY . .
+
+EXPOSE 3000
+
+
+CMD ["npm", "start"]

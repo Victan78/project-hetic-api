@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import '../assets/dash.css';
 import { auth } from "../../firebase.config";
-
+import Swal from "sweetalert2";
 
 
 
 const Dashboard = () => {
-    const { user } = useUserContext();
+    const { user,setUser } = useUserContext();
     const navigate = useNavigate();
 
 
@@ -24,7 +24,14 @@ const Dashboard = () => {
     const signOutt = async () => {
         try {
             await signOut(auth);
+            setUser(null);
             console.log('Successfully signed out');
+            Swal.fire({
+                icon: 'success',
+                title: 'Déconnecté avec succès',
+                showConfirmButton: false,
+                timer: 1500
+            })
         } catch (error) {
             console.error('Error signing out:', error.message);
         }

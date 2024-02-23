@@ -32,10 +32,10 @@ return `
       <![endif]-->
       <style>
          body {
-         background: rgb(204,204,204); 
+            background: #202020; 
          }
          page {
-         background: #202020;
+         background: rgba(0,0,0,0);
          display: block;
          margin: 0 auto;
          margin-bottom: 5mm;
@@ -53,6 +53,7 @@ return `
          html, body, page {
          width: 100%;
          height:100%;
+         background: rgba(0,0,0,0);
          margin: 0 !important; 
          padding: 0 !important;
          overflow: hidden; 
@@ -85,7 +86,7 @@ return `
          p {
          line-height: 15pt;
          margin-bottom: 4mm;
-         color: #fff;
+         color: #000;
          word-break: break-word;
          }
          a {
@@ -150,10 +151,10 @@ return `
          }
          .contactDetails ul li {
          line-height: 24pt;
-         color: #fff;
+         color: #000;
          }
          .contactDetails ul li a, a[href^=tel] {
-         color: #fff; 
+         color: #000; 
          padding: 4px 8px;
          text-decoration: none;
        
@@ -169,7 +170,7 @@ return `
          font-weight:bold;
          }
          section {
-         border-top: 1mm dotted #fff;
+         border-top: 1mm dotted #000;
          padding: 4mm 0 0 0;
          }
          section:first-child {
@@ -209,7 +210,7 @@ return `
          .nameDetails {
          font-size: 11pt;
          font-family: 'Lato', Helvetica, Arial, sans-serif;
-         color: #fff;
+         color: #000;
          text-transform: lowercase;
          }
          .keySkills {
@@ -219,7 +220,7 @@ return `
          column-count:3;
          margin-bottom: 4mm;
          font-size: 11pt;
-         color: #fff;
+         color: #000;
          line-height: 15pt;
          }
          .keySkills ul li {
@@ -232,7 +233,7 @@ return `
          column-count:1;
          margin-bottom: 4mm;
          font-size: 11pt;
-         color: #fff;
+         color: #000;
          line-height: 15pt;
          text-decoration: none;
          }
@@ -246,7 +247,7 @@ return `
          column-count:1;
          margin-bottom: 4mm;
          font-size: 11pt;
-         color: #fff;
+         color: #000;
          line-height: 15pt;
          }
          button{
@@ -272,7 +273,9 @@ return `
       </style>
    </head>
    <body>
-    <page size="A4">
+    <page size="A4" style="
+    background: black;
+    ">
         <div class="cv">
             <div id="header">
                 <div class="contactDetails">

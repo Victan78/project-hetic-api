@@ -1,0 +1,19 @@
+
+FROM node:alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+
+COPY . .
+
+
+RUN npm run build
+
+
+EXPOSE 5000
+
+# Commande pour démarrer le serveur statique de production
+CMD ["npm", "run", "serve"]

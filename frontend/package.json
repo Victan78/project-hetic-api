@@ -12,6 +12,10 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@mui/icons-material": "^5.15.10",
     "@mui/material": "^5.15.10",
     "@react-pdf-viewer/core": "^3.12.0",
@@ -29,6 +33,7 @@
     "react-query": "^3.39.3",
     "react-router-dom": "^6.22.1",
     "react-uuid": "^2.0.0",
+    "sweetalert2": "^11.10.5",
     "uuidv4": "^6.2.13",
     "yarn": "^1.22.21"
   },
